@@ -1,0 +1,77 @@
+﻿@model IEnumerable<STARPrueba.Models.Empleado>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table table-secondary table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApePaterno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApeMaterno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Edad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Area)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            <tr>
+                <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+                <td>
+                @Html.DisplayFor(modelItem => item.ApePaterno)
+            </td>
+                <td>
+                @Html.DisplayFor(modelItem => item.ApeMaterno)
+            </td>
+                <td>
+                @Html.DisplayFor(modelItem => item.Edad)
+            </td>
+                <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+                <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+                <td>
+                @Html.DisplayFor(modelItem => item.AreaId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar Datos</a> |
+                   
+                <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+            </td>
+                
+        </tr>
+}
+    </tbody>
+</table>
+
+<p>
+    <a asp-action="Create">Agregar Empleado</a>
+</p>

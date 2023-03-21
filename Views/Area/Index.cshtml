@@ -1,0 +1,38 @@
+﻿@model IEnumerable<STARPrueba.Models.Area>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+   <a asp-action="Create">Agregar Nueva Area</a>
+</p>
+<table class="table table-striped">
+    <thead >
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="table-dark">
+@foreach (var item in Model) {
+            <tr class="danger">
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+                <td class="danger">
+                <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<p>
+    <a asp-action="Create">Agregar Nueva Area</a>
+</p>

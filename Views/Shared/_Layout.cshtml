@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    @*<meta name="viewport" content="width=device-width, initial-scale=1.0" />*@
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <title>@ViewData["Title"] - STARPrueba</title>
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/STARPrueba.styles.css" asp-append-version="true" />*@
+
+    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/assets/css/fontawesome.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/assets/css/templatemo-sixteen.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/assets/css/owl.css" asp-append-version="true" />
+</head>
+
+<body>
+    @* <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  *@
+    <header class="">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><h2>STAR <em>GROUP</em></h2></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                @*<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">*@
+                        <li class="nav-item active">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                         
+                        </li>
+                        @*<li class="nav-item active">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>*@
+                            @*<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>*@
+                       @* </li>*@
+                        <li class="nav-item active">
+                            <a class="nav-link" asp-area="" asp-controller="Area" asp-action="Index">AREAS</a> @*Products*@
+                           @* <a class="nav-link text-dark" asp-area="" asp-controller="Area" asp-action="Index">AREA</a>*@
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" asp-area="" asp-controller="Empleado" asp-action="Index">EMPLEADOS</a>
+                           @* <a class="nav-link text-dark" asp-area="" asp-controller="Empleado" asp-action="Index">EMPLEADOS</a>*@
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+   @* <div class="page-heading about-heading header-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-content">
+              <h4>about us</h4>
+              <h2>our company</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+*@
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - STARPrueba - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

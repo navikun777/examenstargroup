@@ -1,0 +1,90 @@
+﻿<%Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+@model STARPrueba.Models.Empleado
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Empleado</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input id="txt" asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+                <ajaxToolkit:FilteredInputExtender ID="ff" runat="server"
+                                                   TargetControlID="txt"
+                                                   FilterType="Letters"
+                                                   InValidChars="1,2,3,4,5,6,7,8,9,0" />
+            </div>
+            <div class="form-group">
+                <label asp-for="ApePaterno" class="control-label"></label>
+                <input asp-for="ApePaterno" class="form-control" />
+                <span asp-validation-for="ApePaterno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApeMaterno" class="control-label"></label>
+                <input asp-for="ApeMaterno" class="form-control" />
+                <span asp-validation-for="ApeMaterno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Edad" class="control-label"></label>
+                <input id="ftbe" asp-for="Edad" class="form-control" />
+                <ajaxToolkit:FilteredInputExtender ID="ftbe" runat="server"
+                                                     TargetControlID="ftbe"
+                                                     FilterType="Numbers"
+                                                     ValidChars="+-=/*()." />
+                <span asp-validation-for="Edad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Direccion" class="control-label"></label>
+                <input asp-for="Direccion" class="form-control" />
+                <span asp-validation-for="Direccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AreaId" class="control-label"></label>
+                <select asp-for="AreaId" class="form-control" asp-items="ViewBag.AreaId">
+                    @foreach (Area item in (List<Area>)ViewData["IdArea"])
+                    {
+                        <option value=@item.Id>@item.Nombre</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" id="gd" value="Create" class="btn btn-primary" />
+                <ajaxToolkit:ConfirmButtonExtender ID="tool" runat="server"
+                                                   TargetControlID="gd"
+                                                   ConfirmText="Are you sure you want to click this?"
+                                                   OnClientCancel="CancelClick" />
+            </div>
+
+            
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+     $(function(){
+             $("#gd").click(function(){
+               alert("Hola");
+                  });
+                  });
+                     
+}
