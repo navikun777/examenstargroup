@@ -1,0 +1,22 @@
+CREATE DATABASE StarGroup
+
+CREATE TABLE Areas
+(
+   Id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
+   Nombre varchar(30) NOT NULL,
+
+);
+
+CREATE TABLE Empleados
+(
+   Id int IDENTITY(1,1) PRIMARY KEY NOT NULL,
+   Nombre varchar(50) NOT NULL,
+     ApePaterno varchar(50),
+     ApeMaterno varchar(50),
+     Edad int,
+     Direccion varchar(50),
+     Email varchar(40),
+     AreaId int NOT NULL
+    CONSTRAINT [fk_Areas] FOREIGN KEY(AreaId)REFERENCES Areas(Id)
+
+);
